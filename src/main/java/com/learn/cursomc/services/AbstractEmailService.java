@@ -9,12 +9,12 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+import com.learn.cursomc.config.MailConfig;
 import com.learn.cursomc.domain.Cliente;
 import com.learn.cursomc.domain.Pedido;
 
@@ -24,7 +24,7 @@ public abstract class AbstractEmailService implements EmailService {
 	private TemplateEngine templateEngine;
 	
 	@Autowired
-	private JavaMailSender mailSender;
+	private MailConfig mailConfig;
 	
 	@Value("${default.sender}")
 	private String sender;
@@ -78,7 +78,7 @@ public abstract class AbstractEmailService implements EmailService {
 	}
 	
 	protected MimeMessage prepareMimeMessageFromPedido(Pedido obj) throws MessagingException, IOException {
-		MimeMessage mimeMessage = mailSender.createMimeMessage();
+		MimeMessage mimeMessage = mailConfig.javaMailService().createMimeMessage();
 		MimeMessageHelper mmh = new MimeMessageHelper(mimeMessage, true);
 		
 		mmh.setTo(obj.getCliente().getEmail());

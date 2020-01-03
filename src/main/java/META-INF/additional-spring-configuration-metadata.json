@@ -50,6 +50,51 @@
             "name": "img.profile.size",
             "type": "java.lang.String",
             "description": "A description for 'img.profile.size'"
+        },
+        {
+            "name": "app.email.debug",
+            "type": "java.lang.String",
+            "description": "A description for 'app.email.debug'"
+        },
+        {
+            "name": "app.email.protocol",
+            "type": "java.lang.String",
+            "description": "A description for 'app.email.protocol'"
+        },
+        {
+            "name": "app.email.port",
+            "type": "java.lang.String",
+            "description": "A description for 'app.email.port'"
+        },
+        {
+            "name": "app.email.host",
+            "type": "java.lang.String",
+            "description": "A description for 'app.email.host'"
+        },
+        {
+            "name": "app.email.username",
+            "type": "java.lang.String",
+            "description": "A description for 'app.email.username'"
+        },
+        {
+            "name": "app.email.password",
+            "type": "java.lang.String",
+            "description": "A description for 'app.email.password'"
+        },
+        {
+            "name": "app.email.auth",
+            "type": "java.lang.String",
+            "description": "A description for 'app.email.auth'"
+        },
+        {
+            "name": "app.email.starttls-enable",
+            "type": "java.lang.String",
+            "description": "A description for 'app.email.starttls-enable'"
+        },
+        {
+            "name": "app.email.trust",
+            "type": "java.lang.String",
+            "description": "A description for 'app.email.trust'"
         }
     ]
 }

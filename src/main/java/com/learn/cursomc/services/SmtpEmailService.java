@@ -7,8 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+
+import com.learn.cursomc.config.MailConfig;
 
 @Service
 public class SmtpEmailService extends AbstractEmailService {
@@ -18,7 +19,7 @@ public class SmtpEmailService extends AbstractEmailService {
 	private MailSender mailSender;
 	
 	@Autowired
-	private JavaMailSender javaMailSender;
+	private MailConfig mailConfig;
 	
 	public void sendEmail(SimpleMailMessage msg) {
 		LOG.info("Enviando email ...");
@@ -29,7 +30,7 @@ public class SmtpEmailService extends AbstractEmailService {
 	
 	public void sendHtmlEmail(MimeMessage msg) {
 		LOG.info("Enviando email HTML ...");
-		javaMailSender.send(msg);
+		mailConfig.javaMailService().send(msg);
 		LOG.info("Email HTML enviado.");
 	};
 }
