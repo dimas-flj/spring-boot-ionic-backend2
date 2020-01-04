@@ -14,18 +14,18 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 
 @Configuration
 public class S3Config {
-	@Value("${aws.access-key-id}")
-	private String accessKeyId;
+	@Value("${aws.key}")
+	private String key;
 	
-	@Value("${aws.secret-access-key}")
-	private String secretAccessKey;
+	@Value("${aws.secret}")
+	private String secret;
 	
 	@Value("${s3.region}")
 	private String region;
 	
 	@Bean
 	public AmazonS3 s3Client() throws IOException {
-		BasicAWSCredentials awsCred = new BasicAWSCredentials(accessKeyId, secretAccessKey);
+		BasicAWSCredentials awsCred = new BasicAWSCredentials(key, secret);
 		AmazonS3 s3Client = 
 				AmazonS3ClientBuilder.
 				standard().

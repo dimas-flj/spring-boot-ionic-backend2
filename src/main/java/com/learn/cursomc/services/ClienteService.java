@@ -49,11 +49,11 @@ public class ClienteService {
 	@Autowired
 	private ImageService imageService;
 	
-	@Value("${img.prefix-client-profile}")
-	private String prefixClientProfile;
+	@Value("${img.prefix}")
+	private String prefix;
 	
-	@Value("${img.profile-size}")
-	private Integer profileSize;
+	@Value("${img.size}")
+	private Integer size;
 	
 	public Cliente find(Integer id_busca) throws ObjectNotFoundException, AuthorizationException {
 		UserSS user = UserService.authenticated();
@@ -148,9 +148,9 @@ public class ClienteService {
 		
 		BufferedImage jpgImage = imageService.getJpgImageFromFile(multipartFile);
 		jpgImage = imageService.cropSquare(jpgImage);
-		jpgImage = imageService.resize(jpgImage, profileSize);
+		jpgImage = imageService.resize(jpgImage, size);
 		
-		String fileName = prefixClientProfile + user.getId() + ".jpg";
+		String fileName = prefix + user.getId() + ".jpg";
 		
 		return s3Service.uploadFile(imageService.getImageInputStream(jpgImage, "jpg"), fileName, "image");
 	}
