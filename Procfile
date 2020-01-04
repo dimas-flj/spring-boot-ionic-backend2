@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -Dspring.profiles.active=prod -jar target/spring-boot-ionic-backend-1.0.0-SNAPSHOT.jar
+web: java -Dspring.profiles.active=prod -jar target/spring-boot-ionic-backend-1.0.0-SNAPSHOT.jar
